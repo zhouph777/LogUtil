@@ -7,4 +7,52 @@
     tools:context=".MainActivity">
 
 
+    <Button
+        android:id="@+id/start_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="连续点击五次开启log"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_log_i"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="输出info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_log_d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="输出debug"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btn_log_w"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="输出warn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btn_log_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="输出error"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

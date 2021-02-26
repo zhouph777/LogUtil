@@ -4,36 +4,42 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 
+/**
+ * 日志初始类
+ * create by zhouph
+ * date 2021/2/26
+ */
 public class LogUtil {
-    private static String isPrintLog;
-    private static String LogTAG = "LogUtil";
+    private static String isPrintLog;   //是否开启log输出
+    private static String LogTAG = "LogUtil"; //log输出TAG
 
     public static void i(String msg) {
-        if (isPrintLog.equals(true)) {
+        if (isPrintLog.equals("true")) {
             Log.i(LogTAG, msg);
         }
     }
 
     public static void d(String msg) {
-        if (isPrintLog.equals(true)) {
+        if (isPrintLog.equals("true")) {
             Log.d(LogTAG, msg);
         }
     }
 
     public static void e(String msg) {
-        if (isPrintLog.equals(true)) {
+        if (isPrintLog.equals("true")) {
             Log.e(LogTAG, msg);
         }
     }
 
     public static void w(String msg) {
-        if (isPrintLog.equals(true)) {
+        if (isPrintLog.equals("true")) {
             Log.w(LogTAG, msg);
         }
     }
 
+
     public static void v(String msg) {
-        if (isPrintLog.equals(true)) {
+        if (isPrintLog.equals("true")) {
             Log.v(LogTAG, msg);
         }
     }
@@ -42,7 +48,7 @@ public class LogUtil {
     /**
      * 连续点击view五次则开启log打印
      *
-     * @param view
+     * @param view 控制日志开关的view
      */
     private final static int COUNTS = 5;// 点击次数
     private final static long DURATION = 1000;// 规定有效时间
@@ -59,8 +65,8 @@ public class LogUtil {
      *
      * 如果是在我们规定的时间内，那么就生效，执行我们所要的操作。
      *
-     * @param count
-     * @param time
+     * @param count 点击次数
+     * @param time  点击总时长
      */
     private static void continuousClick(int count, long time) {
         //每次点击时，数组向前移动一位
