@@ -1,2 +1,3 @@
+include ':Logutil'
 include ':app'
 rootProject.name = "LogUtil"
