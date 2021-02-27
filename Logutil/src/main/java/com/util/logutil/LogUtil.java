@@ -85,7 +85,7 @@ public class LogUtil {
         }
     }
 
-    private void saveLog(Context context,String fileName,String fileContent){
+    public static void saveLog(Context context,String fileName,String fileContent){
         SaveFile saveFile = new SaveFile();
         saveFile.saveInFilesDir(context,fileName,fileContent);
     }
