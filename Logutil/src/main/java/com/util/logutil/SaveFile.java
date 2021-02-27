@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class SaveFile {
 
-    public static void saveInFilesDir(Context content, String fileName, String fileContent) {
+    public  void saveInFilesDir(Context content, String fileName, String fileContent) {
 
         try {
             FileOutputStream fos = content.openFileOutput(fileName, Context.MODE_PRIVATE);
