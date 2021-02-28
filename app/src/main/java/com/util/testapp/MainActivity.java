@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 LogUtil.w("输出warn");
                 break;
             case R.id.save_log:
-                LogUtil.saveLog(MainActivity.this,"Log输出","rizhi");
                 break;
             default:
                 break;
