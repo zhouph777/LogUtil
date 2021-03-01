@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_log_i).setOnClickListener(this);
         findViewById(R.id.btn_log_e).setOnClickListener(this);
         findViewById(R.id.btn_log_w).setOnClickListener(this);
-//        findViewById(R.id.start_log).setOnClickListener(this);
-        findViewById(R.id.save_log).setOnClickListener(this);
 
     }
 
@@ -45,9 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_log_w:
                 LogUtil.w("输出warn");
                 break;
-            case R.id.save_log:
-                LogUtil.saveLog(MainActivity.this,"Log输出","rizhi");
-                break;
+
             default:
                 break;
         }

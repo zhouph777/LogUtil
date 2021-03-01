@@ -14,6 +14,7 @@ public class LogUtil {
     private static String isPrintLog;   //是否开启log输出
     private static String LogTAG = "LogUtil"; //log输出TAG
 
+
     public static void i(String msg) {
         if (isPrintLog.equals("true")) {
             Log.i(LogTAG, msg);
