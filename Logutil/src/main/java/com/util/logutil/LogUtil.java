@@ -1,5 +1,6 @@
 package com.util.logutil;
 
+import android.content.Context;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
@@ -82,6 +83,11 @@ public class LogUtil {
 
 
         }
+    }
+
+    public static void saveLog(Context context,String fileName,String fileContent){
+        SaveFile saveFile = new SaveFile();
+        saveFile.saveInFilesDir(context,fileName,fileContent);
     }
 
 }

@@ -3,6 +3,7 @@ package com.util.testapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_log_e).setOnClickListener(this);
         findViewById(R.id.btn_log_w).setOnClickListener(this);
 //        findViewById(R.id.start_log).setOnClickListener(this);
+        findViewById(R.id.save_log).setOnClickListener(this);
 
     }
 
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_log_w:
                 LogUtil.w("输出warn");
+                break;
+            case R.id.save_log:
+                LogUtil.saveLog(MainActivity.this,"Log输出","rizhi");
                 break;
             default:
                 break;
