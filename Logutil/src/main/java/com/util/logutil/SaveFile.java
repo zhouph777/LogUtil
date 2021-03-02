@@ -4,8 +4,6 @@ import android.content.Context;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -33,25 +31,23 @@ public class SaveFile {
      * @param fileContent 要保存得内容
      */
     public void saveInFilesDir(Context content, String fileName, String fileContent) {
-        threadPoolExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                FileOutputStream fos = null;
+        threadPoolExecutor.execute(() -> {
+            FileOutputStream fos = null;
+            try {
+                fos = content.openFileOutput(fileName, Context.MODE_PRIVATE);
+                fos.write(fileContent.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
                 try {
-                    fos = content.openFileOutput(fileName, Context.MODE_PRIVATE);
-                    fos.write(fileContent.getBytes());
+                    fos.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                } finally {
-                    try {
-                        fos.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                 }
             }
         });
     }
+
 
 
 }

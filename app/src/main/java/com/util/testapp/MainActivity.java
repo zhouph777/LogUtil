@@ -22,28 +22,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_log_i).setOnClickListener(this);
         findViewById(R.id.btn_log_e).setOnClickListener(this);
         findViewById(R.id.btn_log_w).setOnClickListener(this);
-
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.start_log:
-                LogUtil.setPrintLog(v);
+                LogUtil.getInstance().initLogUtil(v,false,"============>>>>>>>>");
                 break;
             case R.id.btn_log_i:
-                LogUtil.i("输出info");
+                LogUtil.getInstance().i("输出info");
                 break;
             case R.id.btn_log_e:
-                LogUtil.e("输出error");
+                LogUtil.getInstance().e("输出error");
                 break;
             case R.id.btn_log_d:
-                LogUtil.d("输出debug");
+                LogUtil.getInstance().d("输出debug");
                 break;
             case R.id.btn_log_w:
-                LogUtil.w("输出warn");
+                LogUtil.getInstance().w("输出warn");
                 break;
-
             default:
                 break;
         }

@@ -11,9 +11,9 @@ import android.view.View;
  * date 2021/2/26
  */
 public class LogUtil {
-    private  String isPrintLog;   //是否开启log输出
+    private  String LogPrintSwitch;   //是否开启log输出
     private  String LogTAG = "LogUtil"; //log输出TAG
-    private boolean isSaveLog = false;  //是否保存log
+    private boolean SaveLogSwitch = false;  //是否保存log
 
     /**
      * 单例模式（静态内部类）
@@ -29,46 +29,47 @@ public class LogUtil {
     /**
      * 初始话LogUtil
      * @param view 控制日志开启得View
-     * @param isSaveLog 是否保存日志
+     * @param SaveLogSwitch 是否保存日志
      */
-    public void initLogUtil(View view, boolean isSaveLog) {
+    public void initLogUtil(View view, boolean SaveLogSwitch,String LogTAG) {
         setPrintLog(view);
-        this.isSaveLog = isSaveLog;
+        this.SaveLogSwitch = SaveLogSwitch;
+        this.LogTAG = LogTAG;
     }
 
     public void i(String msg) {
-        if (isPrintLog.equals("true")) {
+        if (LogPrintSwitch.equals("true")) {
             Log.i(LogTAG, msg);
         }
     }
 
     public void i(Context context,String msg) {
-        if (isPrintLog.equals("true")) {
+        if (LogPrintSwitch.equals("true")) {
             Log.i(LogTAG, msg);
         }
     }
 
     public  void d(String msg) {
-        if (isPrintLog.equals("true")) {
+        if (LogPrintSwitch.equals("true")) {
             Log.d(LogTAG, msg);
         }
     }
 
     public  void e(String msg) {
-        if (isPrintLog.equals("true")) {
+        if (LogPrintSwitch.equals("true")) {
             Log.e(LogTAG, msg);
         }
     }
 
     public  void w(String msg) {
-        if (isPrintLog.equals("true")) {
+        if (LogPrintSwitch.equals("true")) {
             Log.w(LogTAG, msg);
         }
     }
 
 
     public  void v(String msg) {
-        if (isPrintLog.equals("true")) {
+        if (LogPrintSwitch.equals("true")) {
             Log.v(LogTAG, msg);
         }
     }
@@ -106,14 +107,14 @@ public class LogUtil {
             mHits = new long[COUNTS];//重新初始化数组
 
             System.setProperty("persist.danny.log", "true");
-            isPrintLog = System.getProperty("persist.danny.log");//将开关设置为系统属性
+            LogPrintSwitch = System.getProperty("persist.danny.log");//将开关设置为系统属性
             Log.i("LogUtil", "Log打开");
 
         }
     }
 
     private void saveLog(Context context, String fileName, String fileContent) {
-        if (isSaveLog) {
+        if (SaveLogSwitch) {
             SaveFile saveFile = new SaveFile();
             saveFile.saveInFilesDir(context, fileName, fileContent);
         }
