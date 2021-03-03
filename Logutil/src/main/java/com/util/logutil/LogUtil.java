@@ -14,6 +14,8 @@ public class LogUtil {
     private  String LogPrintSwitch;   //是否开启log输出
     private  String LogTAG = "LogUtil"; //log输出TAG
     private boolean SaveLogSwitch = false;  //是否保存log
+    private String fileName = null;
+    private String fileContent = null;
 
     /**
      * 单例模式（静态内部类）
@@ -31,10 +33,12 @@ public class LogUtil {
      * @param view 控制日志开启得View
      * @param SaveLogSwitch 是否保存日志
      */
-    public void initLogUtil(View view, boolean SaveLogSwitch,String LogTAG) {
+    public void initLogUtil(View view, boolean SaveLogSwitch,String LogTAG,String fileName,String fileContent) {
         setPrintLog(view);
         this.SaveLogSwitch = SaveLogSwitch;
         this.LogTAG = LogTAG;
+        this.fileName = fileName;
+        this.fileContent = fileContent;
     }
 
     public void i(String msg) {
@@ -46,6 +50,7 @@ public class LogUtil {
     public void i(Context context,String msg) {
         if (LogPrintSwitch.equals("true")) {
             Log.i(LogTAG, msg);
+            saveLog(context,fileName,fileContent);
         }
     }
 
