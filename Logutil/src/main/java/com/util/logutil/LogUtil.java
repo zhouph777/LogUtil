@@ -116,6 +116,7 @@ public class LogUtil {
             Log.i("LogUtil", "Log打开");
 
         }
+
     }
 
     private void saveLog(Context context, String fileName, String fileContent) {
