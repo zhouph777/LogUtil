@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.start_log:
-                LogUtil.getInstance().initLogUtil(v,false,"============>>>>>>>>");
+                LogUtil.getInstance().initLogUtil(v,false,"============>>>>>>>>","LogFile");
                 break;
             case R.id.btn_log_i:
                 LogUtil.getInstance().i("输出info");

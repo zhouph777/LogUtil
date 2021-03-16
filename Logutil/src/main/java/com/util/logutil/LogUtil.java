@@ -16,6 +16,7 @@ public class LogUtil {
     private boolean SaveLogSwitch = false;  //是否保存log
     private String fileName = null;
     private String fileContent = null;
+    private Context context;
 
     /**
      * 单例模式（静态内部类）
@@ -29,36 +30,50 @@ public class LogUtil {
     }
 
     /**
-     * 初始话LogUtil
-     * @param view 控制日志开启得View
-     * @param SaveLogSwitch 是否保存日志
+     * 初始化LogUtil
+     * @param view 控制日志开启的View
+     * @param SaveLogSwitch 是否保存日志的开关
+     * @param LogTAG LogTAG
+     * @param fileName 保存的日志文件名称
      */
-    public void initLogUtil(View view, boolean SaveLogSwitch,String LogTAG,String fileName,String fileContent) {
+    public void initLogUtil(View view, boolean SaveLogSwitch,String LogTAG,String fileName ) {
         setPrintLog(view);
         this.SaveLogSwitch = SaveLogSwitch;
         this.LogTAG = LogTAG;
         this.fileName = fileName;
-        this.fileContent = fileContent;
+    }
+
+    /**
+     * 初始化LogUtil
+     * @param context 上下文
+     * @param view 控制日志开启的View
+     * @param SaveLogSwitch 是否保存日志的开关
+     * @param LogTAG LogTAG
+     * @param fileName 保存的日志文件名称
+     */
+    public void initLogUtil(Context context,View view, boolean SaveLogSwitch,String LogTAG,String fileName ) {
+        setPrintLog(view);
+        this.SaveLogSwitch = SaveLogSwitch;
+        this.LogTAG = LogTAG;
+        this.fileName = fileName;
+        this.context = context;
     }
 
     public void i(String msg) {
         if (LogPrintSwitch.equals("true")) {
             Log.i(LogTAG, msg);
-        }
-    }
+            saveLog(context,fileName,msg);
 
-    public void i(Context context,String msg) {
-        if (LogPrintSwitch.equals("true")) {
-            Log.i(LogTAG, msg);
-            saveLog(context,fileName,fileContent);
         }
     }
 
     public  void d(String msg) {
         if (LogPrintSwitch.equals("true")) {
             Log.d(LogTAG, msg);
+            saveLog(context,fileName,msg);
         }
     }
+
 
     public  void e(String msg) {
         if (LogPrintSwitch.equals("true")) {
@@ -111,12 +126,11 @@ public class LogUtil {
         if (mHits[0] >= (SystemClock.uptimeMillis() - DURATION)) {
             mHits = new long[COUNTS];//重新初始化数组
 
-            System.setProperty("persist.danny.log", "true");
-            LogPrintSwitch = System.getProperty("persist.danny.log");//将开关设置为系统属性
+            System.setProperty("persist.danny.log", "true");//将开关设置为系统属性
+            LogPrintSwitch = System.getProperty("persist.danny.log");
             Log.i("LogUtil", "Log打开");
 
         }
-
     }
 
     private void saveLog(Context context, String fileName, String fileContent) {
