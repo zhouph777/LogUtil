@@ -135,8 +135,8 @@ public class LogUtil {
 
     private void saveLog(Context context, String fileName, String fileContent) {
         if (SaveLogSwitch) {
-            SaveFile saveFile = new SaveFile();
-            saveFile.saveInFilesDir(context, fileName, fileContent);
+            SaveUtil saveUtil = new SaveUtil();
+            saveUtil.saveInFilesDir(context, fileName, fileContent);
         }
     }
 

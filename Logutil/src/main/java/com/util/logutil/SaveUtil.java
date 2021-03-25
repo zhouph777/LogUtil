@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class SaveFile {
+public class SaveUtil {
 
     public  void saveInFilesDir(Context content, String fileName, String fileContent) {
 
